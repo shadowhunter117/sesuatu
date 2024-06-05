@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8' />
+    <meta content='width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5' name='viewport' />
+    <title>for you</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* agar container berada di tengah */
+            background-color: black;
+        }
+
+        #container {
+            display: none;
+            border: 1px solid silver;
+            padding: 10px;
+            overflow: hidden;
+            /* Untuk memastikan border container mengikuti konten */
+        }
+
+        #awtx, #mntx, #awtx2, #mntx2{
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        #awtx, #awtx2, #awtx3, #awtx4, #awtx5 {
+            display: none;
+            color: silver;
+            white-space: nowrap;
+            padding: 10px;
+            animation: 2s awtx steps(40, end) forwards;
+        }
+
+        #mntx, #mntx2, #mntx3, #mntx4 {
+            display:none;
+            white-space:nowrap;
+            color: silver;
+            opacity: 0;
+            animation: 1s mntx steps(100, end) forwards;
+            animation-delay: 2s;
+            /* Mulai animasi setelah awtx selesai */
+        }
+
+        @keyframes awtx {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes mntx {
+            0% {
+                width: 0;
+                opacity: 0;
+            }
+            100% {
+                width: 100%;
+                opacity: 1;
+            }
+        }
+        
+        #strt4{
+            display:none;
+            width: 350px;
+            top:4500px;
+            height: 30px;
+            opacity:0;
+            white-space:nowrap;
+            position: absolute;
+            border-radius:20px;
+            background-color: black;
+            color: silver;
+            border: none;
+            box-shadow: 0 0 1em silver;
+            animation:up3 2s linear;
+            animation-delay:0.5s;
+            animation-fill-mode:forwards;
+        }
+        
+        @keyframes up3{
+            0%{
+                top:470px;
+                opacity:0;
+            }
+            100%{
+                top:450px;
+                opacity:1;
+            }
+        }
+        
+        #strt2, #strt3{
+            display:none;
+            width: 60px;
+            top:4500px;
+            height: 30px;
+            opacity:0;
+            position: absolute;
+            border-radius:20px;
+            background-color: black;
+            color: silver;
+            border: none;
+            box-shadow: 0 0 1em silver;
+            animation:up2 2s linear;
+            animation-delay:2.5s;
+            animation-fill-mode:forwards;
+        }
+        
+        @keyframes up2{
+            0%{
+                top:470px;
+                opacity:0;
+            }
+            100%{
+                top:450px;
+                opacity:1;
+            }
+        }
+
+        #strt {
+            display: block;
+            width: 60px;
+            top:450px;
+            height: 30px;
+            position: absolute;
+            border-radius:20px;
+            background-color: black;
+            color: silver;
+            border: none;
+            box-shadow: 0 0 1em silver;
+            animation:up 2s linear;
+        }
+        
+        @keyframes up{
+            0%{
+                top:470px;
+                opacity:0;
+            }
+            100%{
+                top:450px;
+                opacity:1;
+            }
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="awtx">
+            haii!
+            <div id="mntx">kali ini aku mau bilang <span style="color:red">"sesuatu"</span></div>
+        </div>
+        <div id="awtx2" style="color:silver">tapi...<div id="mntx2">kamu janji jangan <span style="color:red">marah </span> yaa</div>
+        </div>
+        <div id="awtx3" style="color:silver">serius?<div id="mntx3">kamu gak bakal <span style="color:red">marah??</span></div>
+        </div>
+        <div id="awtx4" style="color:silver">gimana yaa?<div id="mntx4">aku <span style="color:red">takut</span> kamu nanti <span style="color:red">marah</span></div>
+        </div>
+        <div id="awtx5"style="color:red">"sesuatu"</div>
+    </div>
+    <button id="strt">tap</button>
+    <button id="strt2">iyaa</button>
+    <button id="strt3">enggak kok</button>
+    <button id="strt4">aku gak bakal marah kok,tadi kamu mau bilang apa?</button>
+</body>
+<script>
+    var awtx = document.getElementById("awtx");
+    var strt = document.getElementById("strt");
+    var awtx2 = document.getElementById("awtx2");
+    var mntx2 = document.getElementById("mntx2");
+    var awtx3 = document.getElementById("awtx3")
+    var mntx3 = document.getElementById("mntx3")
+    var awtx4 = document.getElementById("awtx4")
+    var mntx4 = document.getElementById("mntx4")
+    var strt2 = document.getElementById("strt2")
+    var strt3 = document.getElementById("strt3")
+    var strt4 = document.getElementById("strt4")
+    var awtx5 = document.getElementById("awtx5")
+
+    strt.addEventListener("click", function() {
+        if (!strt.clicked) {
+        awtx.style.display = "block";
+        container.style.display ="block";
+        mntx.style.display ="block";
+        
+        strt.clicked =true; 
+        
+        } else{
+            awtx.style.display ="none";
+            mntx.style.display ="none";
+            awtx2.style.display ="block";
+            mntx2.style.display ="block";
+            strt.style.display ="none";
+            strt2.style.display ="block";
+        }
+    });
+    
+    strt2.addEventListener("click", function() {
+        if (!strt2.clicked) {
+            awtx2.style.display ="none";
+            mntx2.style.display ="none";
+            awtx3.style.display ="block";
+            mntx3.style.display ="block";
+            
+            strt2.clicked =true;
+        } else{
+            awtx3.style.display ="none";
+            mntx3.style.display ="none";
+            strt2.style.display ="none";
+            awtx4.style.display ="block";
+            mntx4.style.display ="block";
+            strt3.style.display ="block";
+        }
+    });
+    
+    strt3.addEventListener("click", function() {
+        if (!strt3.clicked) {
+            awtx4.style.display ="none";
+            mntx4.style.display ="none";
+            strt3.style.display ="none";
+            strt4.style.display ="block";
+        }
+    });
+    
+    strt4.addEventListener("click", function() {
+        if (!strt4.clicked) {
+            awtx5.style.display ="block";
+            strt4.style.display ="none";
+        }
+    });
+</script>
+</html>
